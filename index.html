@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steam Widget with Wishlist Button</title>
+    <title>Steam Widget Example</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -14,18 +14,6 @@
             border: 1px solid #ccc;
             padding: 10px;
         }
-        .wishlist-button {
-            padding: 10px 15px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        .wishlist-button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
@@ -33,16 +21,17 @@
 
     <!-- 游戏 1 -->
     <div class="game-widget">
-        <iframe src="https://store.steampowered.com/widget/413150/" width="600" height="200" scrolling="no" frameborder="0"></iframe>
-        <button class="wishlist-button" onclick="addToWishlist('413150')">加入愿望单</button>
+        <iframe src="https://store.steampowered.com/widget/413150/?button=wishlist" width="600" height="200" scrolling="no" frameborder="0"></iframe>
     </div>
 
+    <!-- 游戏 2 -->
+    <div class="game-widget">
+        <iframe src="https://store.steampowered.com/widget/YOUR_APP_ID_2/?button=wishlist" width="600" height="200" scrolling="no" frameborder="0"></iframe>
+    </div>
 
-    <script>
-        function addToWishlist(appId) {
-            const url = `https://store.steampowered.com/wishlist/add/${appId}`;
-            window.open(url, '_self'); // 在当前标签页打开愿望单添加页面
-        }
-    </script>
+    <!-- 游戏 3 -->
+    <div class="game-widget">
+        <iframe src="https://store.steampowered.com/widget/YOUR_APP_ID_3/?button=wishlist" width="600" height="200" scrolling="no" frameborder="0"></iframe>
+    </div>
 </body>
 </html>
