@@ -3,30 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Your Page Title</title>
-    <!-- Add your custom styles and scripts here -->
+    <title>Steam Widget Example</title>
     <style>
-        /* Basic reset and custom styles can go here */
         body {
-            margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            /* You can add more styles or link to a CSS file */
+            margin: 20px;
+        }
+        .steam-widget {
+            width: 600px;  /* 可以根据需要调整宽度 */
+            height: 200px; /* 可以根据需要调整高度 */
+            border: 1px solid #ccc; /* 添加边框，便于查看 */
         }
     </style>
 </head>
 <body>
-    <!-- Page content will go here -->
-    <!-- You can add your iframe or other content here -->
+    <h1>Steam Game Widget</h1>
+    <p>Here is a widget for a Steam game:</p>
 
-    <h1>Welcome to My GitHub Pages Site</h1>
-    
-    <!-- Example iframe (Replace with your own parameters) -->
-    <iframe src="https://example.com" width="600" height="400" frameborder="0" allowfullscreen></iframe>
-    
-    <p>This is a placeholder page, you can add more content later.</p>
+    <!-- Steam Widget Embed Code -->
+    <iframe 
+        class="steam-widget" 
+        src="https://store.steampowered.com/widget/2439710/" 
+        scrolling="no" 
+        frameborder="0" 
+        allowtransparency="true">
+    </iframe>
 
-    <!-- Add any custom JavaScript here -->
+    <p>More content can go here...</p>
 </body>
 </html>
+
