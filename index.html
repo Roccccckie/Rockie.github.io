@@ -3,33 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steam Widget Example</title>
+    <title>Steam Widget with Wishlist Button</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
         }
-        .steam-widget {
-            width: 600px;  /* 可以根据需要调整宽度 */
-            height: 200px; /* 可以根据需要调整高度 */
-            border: 1px solid #ccc; /* 添加边框，便于查看 */
+        .game-widget {
+            margin-bottom: 20px;
+        }
+        .wishlist-button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .wishlist-button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <h1>Steam Game Widget</h1>
-    <p>Here is a widget for a Steam game:</p>
+    <h1>Steam Game Widgets</h1>
 
-    <!-- Steam Widget Embed Code -->
-    <iframe 
-        class="steam-widget" 
-        src="https://store.steampowered.com/widget/236390/" 
-        scrolling="no" 
-        frameborder="0" 
-        allowtransparency="true">
-    </iframe>
+    <!-- 游戏 1 -->
+    <div class="game-widget">
+        <iframe src="https://store.steampowered.com/widget/1282270/" width="600" height="200" scrolling="no" frameborder="0"></iframe>
+        <button class="wishlist-button" onclick="addToWishlist('1282270')">加入愿望单</button>
+    </div>
 
-    <p>More content can go here...</p>
+    <!-- 游戏 2 -->
+    <div class="game-widget">
+        <iframe src="https://store.steampowered.com/widget/1085660/" width="600" height="200" scrolling="no" frameborder="0"></iframe>
+        <button class="wishlist-button" onclick="addToWishlist('1085660')">加入愿望单</button>
+    </div>
+
+    <!-- 游戏 3 -->
+    <div class="game-widget">
+        <iframe src="https://store.steampowered.com/widget/413150/" width="600" height="200" scrolling="no" frameborder="0"></iframe>
+        
+    </div>
+
+    <script>
+        function addToWishlist(appId) {
+            const url = `https://store.steampowered.com/wishlist/add/${appId}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
-
