@@ -15,23 +15,20 @@
             padding: 10px;
         }
     </style>
+<script src="https://www.steamwidgets.net/api/resource/query?type=js&module=STEAM_WIDGETS_MODULE&version=v1"></script>
+ 
 </head>
 <body>
-    <h1>Steam Game Widgets</h1>
+   <div id="app-widget"></div>
 
-    <!-- 游戏 1 -->
-    <div class="game-widget">
-        <iframe src="https://store.steampowered.com/widget/413150/?button=wishlist" width="600" height="200" scrolling="no" frameborder="0"></iframe>
-    </div>
-
-    <!-- 游戏 2 -->
-    <div class="game-widget">
-        <iframe src="https://store.steampowered.com/widget/YOUR_APP_ID_2/?button=wishlist" width="600" height="200" scrolling="no" frameborder="0"></iframe>
-    </div>
-
-    <!-- 游戏 3 -->
-    <div class="game-widget">
-        <iframe src="https://store.steampowered.com/widget/YOUR_APP_ID_3/?button=wishlist" width="600" height="200" scrolling="no" frameborder="0"></iframe>
-    </div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let widget = new SteamApp('#app-widget', {
+        appid: '1001860',
+        //You can specify the same attributes as shown in the table above as well as events (see below)
+    });
+});
+</script>
+ 
 </body>
 </html>
