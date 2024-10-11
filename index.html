@@ -1,34 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Steam Widget Example</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .game-widget {
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            padding: 10px;
-        }
-    </style>
-<script src="https://www.steamwidgets.net/api/resource/query?type=js&module=app&version=v1"></script>
- 
-</head>
-<body>
-   <div id="app-widget"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div id="app-widget"></div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    let widget = new SteamApp('#app-widget', {
-        appid: '1909750',
-        //You can specify the same attributes as shown in the table above as well as events (see below)
-    });
-});
-</script>
- <iframe src="https://store.steampowered.com/widget/1909750/" frameborder="0" width="646" height="190"></iframe>
-</body>
-</html>
+    <script>
+      $(document).ready(function () {
+        // 上报 page_view 事件到服务器
+        const pageViewData = {
+          event: "page_view",
+          timestamp: new Date().toISOString(),
+          url: window.location.href,
+        };
+
+        fetch("https://rockkkkkie.glitch.me/api/report", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(pageViewData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Page view event reported:", data);
+          })
+          .catch((error) => {
+            console.error("Error reporting page view event:", error);
+          });
+
+        // 创建并加载 Steam Widget
+        let widget = new SteamApp("#app-widget", {
+          appid: "1909750",
+        });
+
+        // 监听失去焦点事件
+        $(window).on("blur", function () {
+          console.log("Window lost focus");
+
+          // 上报失去焦点事件
+          const blurData = {
+            event: "iframe_blur",
+            timestamp: new Date().toISOString(),
+          };
+
+          fetch("https://rockkkkkie.glitch.me/api/report", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(blurData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Iframe blur event reported:", data);
+            })
+            .catch((error) => {
+              console.error("Error reporting iframe blur event:", error);
+            });
+        });
+      });
+    </script>
+
+    <div clas
